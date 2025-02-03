@@ -14,10 +14,6 @@ class Grid {
         }
     }
 
-    public char[][] getGrid() {
-        return this.grid;
-    }
-
     public char getCell(int row, int col) {
         return grid[row][col];
     }

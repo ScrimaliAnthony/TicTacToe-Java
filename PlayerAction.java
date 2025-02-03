@@ -8,7 +8,7 @@ class PlayerAction {
         // Empêche l'instanciation
     }
 
-    public static void playerTurn(Scanner sc, Grid grid) {
+    public static void playerTurn(Scanner sc, Grid grid, boolean isPlayerX) {
         String playerTurn;
         int[] playerAction;
         boolean waitTheAnswer = true;
@@ -30,6 +30,8 @@ class PlayerAction {
 
             if(!isBetweenOneAndThree(moveA, moveB)) {
                 System.out.print(Display.isNotBetweenOneAndThree());
+                System.out.print(moveA);
+                System.out.print(moveB);
                 continue;
             };
 
@@ -40,7 +42,7 @@ class PlayerAction {
             waitTheAnswer = false;
         }
 
-        grid.setCell(moveA, moveB, 'X');
+        grid.setCell(moveA, moveB, whoIsPlaying(isPlayerX));
     }
 
     public static int[] translatePlayerAction(String playerTurn) {
@@ -64,4 +66,11 @@ class PlayerAction {
         return grid.getCell(moveA, moveB) == ' ';
     }
 
+    public static char whoIsPlaying(boolean isPlayerX) {
+        if(isPlayerX) {
+            return 'X';
+        } else {
+            return 'O';
+        }
+    }
 }

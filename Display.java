@@ -33,4 +33,28 @@ class Display {
     public static String isNotCellEmpty() {
         return "This cell is occupied! Choose another one!\n";
     }
+
+    public static String impossibleGameState() {
+        return "Impossible";
+    }
+
+    public static String xWins() {
+        return "X wins";
+    }
+
+    public static String oWins() {
+        return "O wins";
+    }
+
+    public static String draw() {
+        return "Draw";
+    }
+
+    public static String continueGameState() {
+        return "Game not finished";
+    }
+
+    public static String noWinsGameState() {
+        return "No wins";
+    }
 }
