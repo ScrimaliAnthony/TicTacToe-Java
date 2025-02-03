@@ -15,7 +15,7 @@ public class Main {
             gameState = GameState.getGameState(grid);
             System.out.println(gameState);
             isPlayerX = !isPlayerX;
-            if(gameState.equals(Display.xWins()) || gameState.equals(Display.oWins()) || gameState.equals("Draw")) {
+            if(gameState.equals(Display.xWins()) || gameState.equals(Display.oWins()) || gameState.equals(Display.draw())) {
                 running = false;
             }
         }
