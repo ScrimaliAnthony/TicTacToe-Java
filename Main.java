@@ -7,25 +7,44 @@ public class Main {
     static int o = 0;
 
     public static void main(String[] args) {
-        char[][] turn = initiateTurn();
-        String gameState = gameState(turn);
+        Grid grid = new Grid();
+        System.out.print(Display.displayGrid(grid));
 
-        System.out.print(Display.displayGrid(turn));
-        System.out.print(Display.displayResult(gameState));
-        turn = playerTurn(turn);
-        System.out.print(Display.displayGrid(turn));
+
+//        char[][] turn = initiateTurn();
+//        String gameState = gameState(turn);
+//        boolean game = true;
+//
+//        while(1 == 1) {
+//            System.out.print(Display.displayGrid(turn));
+//            XPlayerAction.playerTurn(turn);
+//            if(gameState.equals("X wins") || gameState.equals("O wins") || gameState.equals("Draw")) {
+//                break;
+//            }
+//            System.out.print(Display.displayGrid(turn));
+//            System.out.print(Display.displayResult(gameState));
+//            OPlayerAction.playerTurn(turn);
+//            if(gameState.equals("X wins") || gameState.equals("O wins") || gameState.equals("Draw")) {
+//                break;
+//            }
+//            System.out.print(Display.displayResult(gameState));
+//        }
+//
+//
+//        System.out.print(Display.displayGrid(turn));
+//        System.out.print(Display.displayResult(gameState));
+//        turn = playerTurn(turn);
+//        System.out.print(Display.displayGrid(turn));
     }
 
     public static char[][] initiateTurn() {
-        Scanner sc = new Scanner(System.in);
-        String input = sc.next();
         int n = 0;
 
         char[][] turn = new char[3][3];
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                turn[i][j] = input.charAt(n);
+                turn[i][j] = ' ';
                 n++;
             }
         }
@@ -152,34 +171,34 @@ public class Main {
         return count;
     }
 
-    public static char[][] playerTurn(char[][] turn) {
-        Scanner sc = new Scanner(System.in);
-        String playerTurn;
-        boolean isPlay = true;
-
-        while(isPlay) {
-            System.out.print("C'est votre tour de jouer !\n");
-            playerTurn = sc.nextLine();
-            if(!playerTurn.matches("^\\d+(\\s\\d+)+$")) {
-                System.out.print("You should enter numbers!\n");
-                continue;
-            }
-            int[] playerAction = translatePlayerAction(playerTurn);
-            int moveA = playerAction[0];
-            int moveB = playerAction[1];
-            if (moveA + 1 < 1 || moveA + 1 > 3 || moveB + 1 < 1 || moveB + 1 > 3) {
-                System.out.print("Coordinates should be from 1 to 3!\n");
-                continue;
-            }
-            if (turn[moveA][moveB] == 'X' || turn[moveA][moveB] == 'O') {
-                System.out.print("This cell is occupied! Choose another one!\n");
-                continue;
-            }
-            turn[moveA][moveB] = 'X';
-            isPlay = false;
-        }
-        return turn;
-    }
+//    public static char[][] playerTurn(char[][] turn) {
+//        Scanner sc = new Scanner(System.in);
+//        String playerTurn;
+//        boolean isPlay = true;
+//
+//        while(isPlay) {
+//            System.out.print("C'est votre tour de jouer !\n");
+//            playerTurn = sc.nextLine();
+//            if(!playerTurn.matches("^\\d+(\\s\\d+)+$")) {
+//                System.out.print("You should enter numbers!\n");
+//                continue;
+//            }
+//            int[] playerAction = translatePlayerAction(playerTurn);
+//            int moveA = playerAction[0];
+//            int moveB = playerAction[1];
+//            if (moveA + 1 < 1 || moveA + 1 > 3 || moveB + 1 < 1 || moveB + 1 > 3) {
+//                System.out.print("Coordinates should be from 1 to 3!\n");
+//                continue;
+//            }
+//            if (turn[moveA][moveB] == 'X' || turn[moveA][moveB] == 'O') {
+//                System.out.print("This cell is occupied! Choose another one!\n");
+//                continue;
+//            }
+//            turn[moveA][moveB] = 'X';
+//            isPlay = false;
+//        }
+//        return turn;
+//    }
 
     public static int[] translatePlayerAction(String playerTurn) {
         String[] toArray = playerTurn.split(" ");
