@@ -7,9 +7,12 @@ public class Main {
     static int o = 0;
 
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         Grid grid = new Grid();
-        System.out.print(Display.displayGrid(grid));
-
+        System.out.print(Display.grid(grid));
+        PlayerAction.playerTurn(sc, grid);
+        System.out.println("Le jeu est terminé");
+        System.out.println(Display.grid(grid));
 
 //        char[][] turn = initiateTurn();
 //        String gameState = gameState(turn);
@@ -37,20 +40,20 @@ public class Main {
 //        System.out.print(Display.displayGrid(turn));
     }
 
-    public static char[][] initiateTurn() {
-        int n = 0;
-
-        char[][] turn = new char[3][3];
-
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                turn[i][j] = ' ';
-                n++;
-            }
-        }
-
-        return turn;
-    }
+//    public static char[][] initiateTurn() {
+//        int n = 0;
+//
+//        char[][] turn = new char[3][3];
+//
+//        for (int i = 0; i < 3; i++) {
+//            for (int j = 0; j < 3; j++) {
+//                turn[i][j] = ' ';
+//                n++;
+//            }
+//        }
+//
+//        return turn;
+//    }
 
     public static String gameState(char[][] turn) {
         String row1 = isXRowWin(turn, 0);
@@ -200,12 +203,12 @@ public class Main {
 //        return turn;
 //    }
 
-    public static int[] translatePlayerAction(String playerTurn) {
-        String[] toArray = playerTurn.split(" ");
-        int[] toIntArray = new int[2];
-        for(int i = 0; i < 2; i++) {
-            toIntArray[i] = Integer.parseInt(toArray[i]) - 1;
-        }
-        return toIntArray;
-    }
+//    public static int[] translatePlayerAction(String playerTurn) {
+//        String[] toArray = playerTurn.split(" ");
+//        int[] toIntArray = new int[2];
+//        for(int i = 0; i < 2; i++) {
+//            toIntArray[i] = Integer.parseInt(toArray[i]) - 1;
+//        }
+//        return toIntArray;
+//    }
 }

@@ -1,6 +1,6 @@
 package tictactoe;
 
-public class Grid {
+class Grid {
     private char[][] grid = new char[3][3];
 
     public Grid() {
